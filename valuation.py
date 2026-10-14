@@ -2,11 +2,11 @@
 def calculate_valuation(net_income, exit_pe, dilution, target_irr,
                         years, entry_valuation, investment):
     """VC exit valuation model. Monetary inputs use the same unit."""
-    if net_income &lt; 0 or exit_pe &lt;= 0 or not 0 &lt;= dilution &lt; 1:
+    if net_income < 0 or exit_pe <= 0 or not 0 <= dilution < 1:
         raise ValueError("Invalid earnings, PE or dilution assumptions.")
-    if years &lt;= 0 or target_irr &lt;= -1:
+    if years <= 0 or target_irr <= -1:
         raise ValueError("Invalid holding period or target IRR.")
-    if entry_valuation &lt;= 0 or not 0 &lt; investment &lt;= entry_valuation:
+    if entry_valuation <= 0 or not 0 < investment <= entry_valuation:
         raise ValueError("Invalid investment or entry valuation.")
 
     exit_value = net_income * exit_pe
